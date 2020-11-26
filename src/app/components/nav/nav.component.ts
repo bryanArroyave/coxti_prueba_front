@@ -22,14 +22,14 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.userService.changeObservable.subscribe((res) => {
       this.isLogged = res;
-      console.log(res);
+    
     });
   }
 
   logout() {
     this.userService.logout().subscribe(
       (res) => {
-        console.log(res);
+
         this.autService.clearLocalStorage();
         this.userService.isLogged(false);
 

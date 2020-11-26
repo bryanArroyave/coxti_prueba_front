@@ -18,8 +18,6 @@ export class UserService {
   login(logger: { email: string; password: string }) {
     const { email, password } = logger;
 
-    console.log(logger);
-
     const headers = new HttpHeaders({
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -38,16 +36,14 @@ export class UserService {
     return _;
   }
 
-  singin(data: {}) {
-    console.log(data);
-
+  singup(data: {}) {
     const headers = new HttpHeaders({
       Accept: 'application/json',
       'Content-Type': 'application/json',
     });
 
     const _ = this.http.post(
-      'http://127.0.0.1:3333/api/auth/singin',
+      'http://127.0.0.1:3333/api/auth/singup',
       {
         data,
       },

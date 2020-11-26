@@ -45,7 +45,6 @@ export class RegisterFormComponent implements OnInit {
 
     this.getCategories();
   }
-
   validateInfo() {
     return (
       this.validations.email === this.info_register[4] &&
@@ -53,7 +52,6 @@ export class RegisterFormComponent implements OnInit {
       this.validateEmpty()
     );
   }
-
   validateEmpty() {
     for (let clave in this.info_register) {
       if (!this.info_register[clave]) {
@@ -62,11 +60,11 @@ export class RegisterFormComponent implements OnInit {
     }
     return true;
   }
-
-  singin() {
+  singup() {
     if (this.validateInfo())
-      this.userService.singin(this.info_register).subscribe(
+      this.userService.singup(this.info_register).subscribe(
         (res) => {
+          this.toastr.success('Registrado correctamente');
           this.router.navigate(['login']);
         },
         (err) => {
@@ -75,7 +73,7 @@ export class RegisterFormComponent implements OnInit {
         }
       );
     else {
-      this.toastr.error("Campos inválidos");
+      this.toastr.error('Campos inválidos');
     }
   }
   cointainClassOpen(classList: []): boolean {

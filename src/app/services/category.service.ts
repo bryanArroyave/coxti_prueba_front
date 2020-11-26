@@ -23,8 +23,6 @@ export class CategoryService {
       headers,
     });
 
-    console.log(_);
-
     return _;
   }
 }

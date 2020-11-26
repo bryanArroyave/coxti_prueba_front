@@ -35,7 +35,7 @@ export class UserLoginComponent implements OnInit {
         this.router.navigate(['user']);
       },
       (err) => {
-        console.log(err.error.msg);
+     
         this.toastr.error('Error al ingresar a la aplicación');
         if (err.error.msg === 'user is logged already') {
           this.router.navigate(['user']);
