@@ -1,0 +1,16 @@
+<div class="category-container">
+    <div class="category" *ngFor="let info of infos">
+        <div (click)="toggleClass($event)" class="category__header ">
+            <h4>{{info.name}}</h4>
+            <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="category__items ">
+            <div class="category__item " *ngFor="let item of info.items">
+
+                <h6> {{item.name}}</h6>
+                <p>{{item.data}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

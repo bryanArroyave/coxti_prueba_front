@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #eee;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.category-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 60px auto 20px;
+  background: #eee;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 49, 83, 0.2);
+}
+
+.category__header {
+  padding: 10px;
+  display: flex;
+  color: rgba(255, 250, 250);
+  border-bottom: 1px solid rgba(255, 250, 250, 0.2);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  background: rgba(0, 49, 83, 1);
+}
+
+.category__items {
+  color: rgba(0, 49, 83, 1);
+  border-radius: 4px;
+  display: none;
+}
+
+.category__item {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0, 49, 83, 0.4);
+  margin: 3px;
+}
+
+.open + .category__items {
+  display: block;
+}
+.category__header i.fa-angle-down {
+  align-self: flex-end;
+  text-align: left;
+  transition: all 0.4s ease;
+  display: block;
+  margin: 0 0 0 auto;
+}
+
+.category__item:hover {
+  background: rgba(128, 0, 32, 0.6);
+  color: #fff;
+}
+.category__item > h6 {
+  width: 40%;
+}
+.category__item > p {
+  width: 60%;
+}
+
+.open {
+  background: rgba(0, 49, 83, 1);
+}
+.open h2 {
+  color: rgb(255, 250, 250);
+}
+.open i.fa-angle-down {
+  color: rgb(255, 250, 250);
+  transform: rotate(180deg);
+}
+
+.nav__border {
+  border-bottom: 1px solid rgba(0, 49, 83, 0.2);
+}

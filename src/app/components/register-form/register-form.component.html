@@ -1,0 +1,53 @@
+<div class="category-container">
+
+    <form>
+
+        <div class="category" *ngFor="let info of infos">
+            <div (click)="toggleClass($event)" class="category__header ">
+                <h4>{{info.name}}</h4>
+                <i class="fas fa-angle-down"></i>
+            </div>
+            <div #items class="category__items ">
+                <div class="category__item " *ngFor="let item of info.items; let index = index; trackBy:trackByIndex">
+
+                    <h6> {{item.name}} </h6>
+                    <div class="form-label-group ">
+                        <input [(ngModel)]="info_register[item.id]" type="{{item.type}}" id="in_{{item.id}}"
+                            class="form-control" placeholder="{{item.name}}" name="password" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <div (click)="toggleClass($event)" class="category__header ">
+                <h4>Validaciones</h4>
+                <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="category__items ">
+                <div class="category__item ">
+                    <h6> Correo </h6>
+                    <div class="form-label-group ">
+                        <input [(ngModel)]="validations.email" type="email" id="val_email" class="form-control"
+                            placeholder="validate email" name="password" required>
+                    </div>
+                </div>
+                <div class="category__item ">
+                    <h6> Contraseña </h6>
+                    <div class="form-label-group ">
+                        <input [(ngModel)]="validations.password" type="password" id="val_pass" class="form-control"
+                            placeholder="validate password" name="password" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="form-label-group but-sing">
+    <button (click)="singin()" class="btn btn-lg btn-primary btn-block text-uppercase">Sign
+        in
+    </button>
+</div>
