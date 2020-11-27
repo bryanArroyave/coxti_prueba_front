@@ -26,7 +26,7 @@ export class UserLoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.logger).subscribe(
-      (res) => {
+      (res: any) => {
         localStorage.setItem('token', res.payload.token);
         localStorage.setItem('token_type', res.payload.type);
         localStorage.setItem('refresh_token', res.payload.refreshToken);
@@ -35,7 +35,6 @@ export class UserLoginComponent implements OnInit {
         this.router.navigate(['user']);
       },
       (err) => {
-     
         this.toastr.error('Error al ingresar a la aplicación');
         if (err.error.msg === 'user is logged already') {
           this.router.navigate(['user']);

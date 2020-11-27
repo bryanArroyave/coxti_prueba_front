@@ -63,8 +63,8 @@ export class RegisterFormComponent implements OnInit {
   singup() {
     if (this.validateInfo())
       this.userService.singup(this.info_register).subscribe(
-        (res) => {
-          this.toastr.success('Registrado correctamente');
+        (res: any) => {
+          this.toastr.info('Registrado correctamente');
           this.router.navigate(['login']);
         },
         (err) => {
@@ -95,7 +95,7 @@ export class RegisterFormComponent implements OnInit {
     const infos: Info[] = [];
 
     this.categoryService.getCategories().subscribe(
-      (res) => {
+      (res: any) => {
         for (const category of res.payload) {
           const items: Item[] = this.getCategoriesItems(category.id);
           let info: Info;
@@ -115,7 +115,7 @@ export class RegisterFormComponent implements OnInit {
     const items: Item[] = [];
 
     this.categoryitemService.getItems(id).subscribe(
-      (res) => {
+      (res: any) => {
         for (const categoryItem of res.payload) {
           this.info_register[categoryItem.id] = '';
 

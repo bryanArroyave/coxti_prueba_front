@@ -54,7 +54,7 @@ export class UserComponent implements OnInit {
     const infos: Info[] = [];
 
     this.categoryService.getCategories().subscribe(
-      (res) => {
+      (res: any) => {
         for (const category of res.payload) {
           const items: Item[] = this.getCategoriesItems(category.id);
           let info: Info;
@@ -75,7 +75,7 @@ export class UserComponent implements OnInit {
     const items: Item[] = [];
 
     this.categoryitemService.getItems(id).subscribe(
-      (res) => {
+      (res: any) => {
         for (const categoryItem of res.payload) {
           let item: Item;
           item = {
@@ -96,12 +96,14 @@ export class UserComponent implements OnInit {
 
     return items;
   }
+
   getInfoUser() {
     this.userService.getInfo().subscribe(
-      (res) => {
+      (res: any) => {
         for (const user of res.payload) {
           const id: number = user.category_item_id;
           const data = user.data;
+
           this.users[id] = data;
         }
         this.getCategories();
